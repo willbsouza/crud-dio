@@ -1,5 +1,6 @@
 package one.digitalinnovation.crudDIO.controller;
 
+import lombok.AllArgsConstructor;
 import one.digitalinnovation.crudDIO.dto.request.PersonDTO;
 import one.digitalinnovation.crudDIO.dto.response.MessageResponseDTO;
 import one.digitalinnovation.crudDIO.exception.PersonNotFoundException;
