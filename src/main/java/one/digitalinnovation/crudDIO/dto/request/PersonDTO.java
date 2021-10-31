@@ -7,10 +7,6 @@ import lombok.NoArgsConstructor;
 import one.digitalinnovation.crudDIO.entity.Phone;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
