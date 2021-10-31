@@ -1,5 +1,6 @@
 package one.digitalinnovation.crudDIO.service;
 
+import lombok.AllArgsConstructor;
 import one.digitalinnovation.crudDIO.dto.request.PersonDTO;
 import one.digitalinnovation.crudDIO.dto.response.MessageResponseDTO;
 import one.digitalinnovation.crudDIO.entity.Person;
@@ -10,20 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonService {
 
     private final PersonRepository personRepository;
 
     private final PersonMapper personMapper = PersonMapper.INSTANCE;
-
-    @Autowired
-    public PersonService(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
 
     public MessageResponseDTO createPerson(PersonDTO personDTO) {
         Person personToSave = personMapper.toModel(personDTO);
@@ -53,7 +49,7 @@ public class PersonService {
         personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
         Person personToUpdate = personMapper.toModel(personDTO);
 
-        Person savedPerson = personRepository.save(personToUpdate);
-        return MessageResponseDTO.builder().message("Updated person with ID " + savedPerson.getId()).build();
+        Person updatedPerson = personRepository.save(personToUpdate);
+        return MessageResponseDTO.builder().message("Updated person with ID " + updatedPerson.getId()).build();
     }
 }
